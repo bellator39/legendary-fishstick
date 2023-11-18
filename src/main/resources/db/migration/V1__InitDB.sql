@@ -1,19 +1,3 @@
-create table if not exists role
-(
-    id      bigserial
-        primary key,
-    user_id bigint,
-    name    varchar(255)
-);
-
-create table if not exists order_list
-(
-    id         bigserial
-        primary key,
-    order_id   bigint,
-    product_id bigint
-);
-
 create table if not exists blog_category
 (
     id   bigserial
@@ -89,6 +73,7 @@ create table if not exists product
     status              varchar(255)
 );
 
+
 create table if not exists orders_list
 (
     id         bigserial
@@ -126,8 +111,13 @@ create table if not exists users
     name          varchar(255),
     password      varchar(255),
     soname        varchar(255),
-    status        varchar(255)
-);
+    status        varchar(255),
+    user_role     varchar(255)
+        constraint users_user_role_check
+            check ((user_role)::text = ANY
+        ((ARRAY ['USER'::character varying, 'ADMIN'::character varying, 'MANAGER'::character varying])::text[]))
+    );
+
 
 create table if not exists cart_user
 (
@@ -153,14 +143,4 @@ create table if not exists cart_product
             references product
 );
 
-
-create table if not exists roles
-(
-    id      bigserial
-        primary key,
-    user_id bigint
-        constraint fk97mxvrajhkq19dmvboprimeg1
-            references users,
-    name    varchar(255)
-);
 

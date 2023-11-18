@@ -1,26 +1,12 @@
 package io.fooddelivery.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
-@Entity
-@Table(name = "Roles")
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-public class Role {
+public enum Role implements GrantedAuthority {
+    USER, ADMIN, MANAGER;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Override
+    public String getAuthority() {
+        return name();
+    }
 }
