@@ -109,7 +109,7 @@ create table if not exists users
     email         varchar(255),
     login         varchar(255),
     name          varchar(255),
-    password      varchar(255),
+    password_user varchar(255),
     soname        varchar(255),
     status        varchar(255),
     user_role     varchar(255)
