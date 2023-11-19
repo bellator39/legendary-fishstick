@@ -27,6 +27,7 @@ public class ProductServiceImplementation implements ProductServiceApi {
         Optional<CategoryProduct> categoryById = categoryProductRepository.findById(idCategory);
         if(categoryById.isPresent() && ProductValidator.ProductValidation(product)) {
             product.setDateCreate(new Date());
+            product.setCountOfBuy(0);
             product.setStatus("In Stock");
             product.setCategoryProduct(categoryById.get());
             log.info("Save new product with name - {} in {}",product.getName(),new Date());
