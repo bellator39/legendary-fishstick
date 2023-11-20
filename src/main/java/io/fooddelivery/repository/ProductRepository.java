@@ -11,8 +11,11 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
-    @Query("SELECT p FROM Product p LEFT JOIN FETCH p.productReviews " +
-            "GROUP BY p.id ORDER BY COUNT(p.productReviews) DESC")
+
+    @Query("SELECT p, COUNT(pr) AS reviewCount " +
+            "FROM Product p LEFT JOIN p.productReviews pr " +
+            "GROUP BY p.id " +
+            "ORDER BY reviewCount DESC")
     List<Product> findProductsWithMostReviews();
 
     List<Product>findAllByCategoryProduct(CategoryProduct categoryProduct);

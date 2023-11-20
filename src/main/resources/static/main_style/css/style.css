@@ -227,7 +227,12 @@ ol {
 .header__top__left {
 	padding: 10px 0 13px;
 }
-
+.header__top__left a {
+	color: black;
+}
+.header__top__left a:hover {
+	color: #CDDC39;
+}
 .header__top__left ul li {
 	font-size: 14px;
 	color: #1c1c1c;
@@ -684,6 +689,14 @@ ol {
 
 .hero__search__phone__text {
 	overflow: hidden;
+}
+
+.hero__search__phone__text a {
+	color: black;
+}
+
+.hero__search__phone__text a:hover {
+	color: #CDDC39;
 }
 
 .hero__search__phone__text h5 {
@@ -2718,6 +2731,14 @@ ol {
 
 .contact__widget {
 	margin-bottom: 30px;
+}
+
+.contact__widget a{
+	color: black;
+}
+
+.contact__widget a:hover{
+	color: #CDDC39;
 }
 
 .contact__widget span {

@@ -1,4 +1,5 @@
-<#macro page>
+<#import "navbarUserComponent.ftlh" as navbar>
+<#macro page pageName>
     <html lang="zxx">
 
     <head>
@@ -28,8 +29,7 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    <#include "navbarUserComponent.ftlh"/>
-
+   <@navbar.navbar pageName=pageName></@navbar.navbar>
     <#nested/>
 
     <!-- Footer Section Begin -->
@@ -39,7 +39,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="/static/main_style/img/logo3.png" alt=""></a>
+                            <a href="/"><img src="/static/main_style/img/logo3.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: Minsk</li>
@@ -57,13 +57,13 @@
                             <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
                             <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="./contact.html">Our Sitemap</a></li>
+                            <li><a href="/contact">Our Sitemap</a></li>
                         </ul>
                         <ul>
                             <li><a href="#">Who We Are</a></li>
                             <li><a href="#">Our Services</a></li>
                             <li><a href="#">Projects</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="/contact">Contact</a></li>
                             <li><a href="#">Innovation</a></li>
                             <li><a href="#">Testimonials</a></li>
                         </ul>
