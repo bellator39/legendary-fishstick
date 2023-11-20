@@ -26,10 +26,10 @@ public class UserController {
 
     @PostMapping("/signup")
     public String signUpUser(@RequestParam("name")String name,
-                             @RequestParam("name")String soname,
-                             @RequestParam("name")String email,
-                             @RequestParam("name")String password,
-                             @RequestParam("name")String login, Model model){
+                             @RequestParam("soname")String soname,
+                             @RequestParam("email")String email,
+                             @RequestParam("password")String password,
+                             @RequestParam("login")String login, Model model){
 
         User user = User.builder()
                 .name(name)

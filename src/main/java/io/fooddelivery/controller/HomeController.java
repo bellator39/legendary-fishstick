@@ -3,15 +3,19 @@ package io.fooddelivery.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
 
-    @GetMapping("/home/test")
-    public String homePate(Model model){
+    @GetMapping("/")
+    public String homePage(Model model){
         model.addAttribute("message","hello world!");
-        return "home";
+        return "homeUserPage";
+    }
+
+    @GetMapping("/contact")
+    public String contactPage(Model model){
+        return "contactUserPage";
     }
 
 }
