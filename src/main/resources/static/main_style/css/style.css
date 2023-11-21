@@ -1761,7 +1761,42 @@ ol {
 	background: #f5f5f5;
 	margin-bottom: 5px;
 }
+.product__comments {
+	margin-top: 20px;
+}
 
+.product__comments h6 {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.product__comments ul {
+	list-style: none;
+	padding: 0;
+}
+
+.product__comments li {
+	border-bottom: 1px solid #ddd;
+	padding: 10px 0;
+}
+
+.product__comments h5 {
+	margin-bottom: 5px;
+}
+
+.product__comments h4 {
+	font-size: 14px;
+	color: #777;
+}
+
+.product__comments h3 {
+	font-size: 18px;
+	color: #f39c12;
+}
+
+.nice-select{
+	width: 100%;
+}
 .pro-qty input {
 	height: 100%;
 	width: 100%;

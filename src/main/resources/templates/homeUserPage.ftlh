@@ -13,9 +13,8 @@
                         <ul>
                             <#if categoryList??>
                                 <#list categoryList as catList>
-                                    <li><a href="#">${catList.name}</a></li>
+                                    <li><a href="/product/category/${catList.id}">${catList.name}</a></li>
                                 </#list>
-
                             </#if>
                         </ul>
                     </div>
@@ -23,11 +22,12 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form action="/product/byname" method="post">
                                 <div class="hero__search__categories">
                                     All Categories
+                                    <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" name="name" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -46,7 +46,7 @@
                             <span>FRUIT FRESH</span>
                             <h2>Vegetable <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            <a href="/product/all" class="primary-btn">SHOP NOW</a>
                         </div>
                     </div>
                 </div>
@@ -62,27 +62,27 @@
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/static/main_style/img/categories/cat-1.jpg">
-                            <h5><a href="#">Fresh Fruit</a></h5>
+                            <h5><a href="/product/category/13">Fresh Fruit</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/static/main_style/img/categories/cat-2.jpg">
-                            <h5><a href="#">Dried Fruit</a></h5>
+                            <h5><a href="/product/category/13">Dried Fruit</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/static/main_style/img/categories/cat-3.jpg">
-                            <h5><a href="#">Fresh Vegetables</a></h5>
+                            <h5><a href="/product/category/11">Fresh Vegetables</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/static/main_style/img/categories/cat-4.jpg">
-                            <h5><a href="#">Fresh Meat</a></h5>
+                            <h5><a href="/product/category/10">Fresh Meat</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/static/main_style/img/categories/cat-5.jpg">
-                            <h5><a href="#">Fresh Fruit</a></h5>
+                            <h5><a href="/product/category/13">Fresh Fruit</a></h5>
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                                     <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                         <ul class="featured__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="/product/${meat.id}"><i class="fa fa-retweet"></i></a></li>
                                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
@@ -137,7 +137,7 @@
                                             <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                                 <ul class="featured__item__pic__hover">
                                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                    <li><a href="/product/${fastfood.id}"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -156,7 +156,7 @@
                                             <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                                 <ul class="featured__item__pic__hover">
                                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                    <li><a href="/product/${veg.id}"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -175,7 +175,7 @@
                                     <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                         <ul class="featured__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="/product/${fr.id}"><i class="fa fa-retweet"></i></a></li>
                                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
@@ -195,14 +195,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <a href="/login">
+                    <a href="/product/all">
                     <div class="banner__pic">
                         <img src="/static/main_style/img/banner/banner-1.jpg" alt="">
                     </div>
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <a href="/login">
+                    <a href="/product/all">
                         <div class="banner__pic">
                             <img src="/static/main_style/img/banner/banner-2.jpg" alt="">
                         </div>
@@ -224,7 +224,7 @@
                             <div class="latest-prdouct__slider__item">
                                 <#if lastProductList??>
                                     <#list lastProductList as last>
-                                        <a href="#" class="latest-product__item">
+                                        <a href="/product/${last.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${last.photoUrl}" alt="">
                                             </div>
@@ -246,7 +246,7 @@
                             <div class="latest-prdouct__slider__item">
                                 <#if topRatedProductList??>
                                     <#list topRatedProductList as rated>
-                                        <a href="#" class="latest-product__item">
+                                        <a href="/product/${rated.id}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img src="${rated.photoUrl}" alt="">
                                             </div>
@@ -269,7 +269,7 @@
                                 <div class="latest-prdouct__slider__item">
 
                                         <#list reviewProductList as review>
-                                            <a href="#" class="latest-product__item">
+                                            <a href="/product/${review.id}" class="latest-product__item">
                                                 <div class="latest-product__item__pic">
                                                     <img src="${review.photoUrl}" alt="">
                                                 </div>

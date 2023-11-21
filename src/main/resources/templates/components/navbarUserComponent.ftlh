@@ -37,10 +37,10 @@
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
             <li class="<#if pageName=="Home">active</#if>"><a href="/">Home</a></li>
-            <li <#if pageName=="Shop">active</#if>"><a href="./shop-grid.html">Shop</a></li>
-            <li <#if pageName=="About Us">active</#if>">><a href="./blog.html">About us</a></li>
-            <li <#if pageName=="Blog">active</#if>"><a href="./blog.html">Blog</a></li>
-            <li <#if pageName=="Contact">active</#if>"><a href="/contact">Contact</a></li>
+            <li class="<#if pageName=="Shop">active</#if>"><a href="/product/all">Shop</a></li>
+            <li class="<#if pageName=="About Us">active</#if>">><a href="./blog.html">About us</a></li>
+            <li class="<#if pageName=="Blog">active</#if>"><a href="./blog.html">Blog</a></li>
+            <li class="<#if pageName=="Contact">active</#if>"><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -114,7 +114,7 @@
                 <nav class="header__menu">
                     <ul>
                         <li class="<#if pageName=="Home">active</#if>"><a href="/">Home</a></li>
-                        <li class="<#if pageName=="Shop">active</#if>"><a href="./shop-grid.html">Shop</a></li>
+                        <li class="<#if pageName=="Shop">active</#if>"><a href="/product/all">Shop</a></li>
                         <li class="<#if pageName=="About">active</#if>"><a href="./blog.html">About us</a></li>
                         <li class="<#if pageName=="Blog">active</#if>"><a href="./blog.html">Blog</a></li>
                         <li class="<#if pageName=="Contact">active</#if>"><a href="/contact">Contact</a></li>

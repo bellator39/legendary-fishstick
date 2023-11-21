@@ -205,20 +205,31 @@
     var proQty = $('.pro-qty');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
-    proQty.on('click', '.qtybtn', function () {
-        var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
-        if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
-        } else {
-            // Don't allow decrementing below zero
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
+
+    proQty.each(function () {
+        var $input = $(this).find('input');
+        var maxQty = $input.data('max'); // Получаем значение параметра max из атрибута data-max
+
+        // Валидация max
+        if (isNaN(maxQty) || maxQty < 0) {
+            maxQty = Infinity; // По умолчанию бесконечность, если max не задан или задан некорректно
         }
-        $button.parent().find('input').val(newVal);
+
+        proQty.on('click', '.qtybtn', function () {
+            var $button = $(this);
+            var oldValue = parseFloat($input.val());
+            var newVal;
+
+            if ($button.hasClass('inc')) {
+                // Не даем превысить значение max
+                newVal = oldValue < maxQty ? oldValue + 1 : oldValue;
+            } else {
+                // Не даем уйти ниже нуля
+                newVal = oldValue > 0 ? oldValue - 1 : 0;
+            }
+
+            $input.val(newVal);
+        });
     });
 
 })(jQuery);
