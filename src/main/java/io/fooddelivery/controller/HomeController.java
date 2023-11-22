@@ -5,10 +5,7 @@ import io.fooddelivery.entity.CategoryProduct;
 import io.fooddelivery.entity.Contacts;
 import io.fooddelivery.entity.Product;
 import io.fooddelivery.repository.CategoryProductRepository;
-import io.fooddelivery.service.api.BlogServiceApi;
-import io.fooddelivery.service.api.CartProductServiceApi;
-import io.fooddelivery.service.api.ContactServiceApi;
-import io.fooddelivery.service.api.ProductServiceApi;
+import io.fooddelivery.service.api.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -30,6 +27,7 @@ public class HomeController {
     private final BlogServiceApi blogServiceApi;
     private final ContactServiceApi contactServiceApi;
     private final CartProductServiceApi cartProductServiceApi;
+    private final OrderServiceApi orderServiceApi;
     @GetMapping("/")
     public String homePage(Model model){
         List<Product> meatList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(10L).build()).stream().limit(5).toList();
@@ -51,6 +49,7 @@ public class HomeController {
         model.addAttribute("reviewProductList",reviewProduct);
         model.addAttribute("blogList",blogList);
         model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
 
         return "homeUserPage";
     }
@@ -58,6 +57,7 @@ public class HomeController {
     @GetMapping("/contact")
     public String contactPage(Model model){
         model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
         return "contactUserPage";
     }
 
@@ -77,10 +77,12 @@ public class HomeController {
         if(contactSaveResult!=null){
             model.addAttribute("cartProductService",cartProductServiceApi);
             model.addAttribute("message",String.format("Dear %s thanks for message for us! We will answer you soon",name));
+            model.addAttribute("orderServiceApi",orderServiceApi);
             return "contactUserPage";
         }else{
             model.addAttribute("cartProductService",cartProductServiceApi);
             model.addAttribute("message","Something was wrong, please try later!");
+            model.addAttribute("orderServiceApi",orderServiceApi);
             return "contactUserPage";
 
         }

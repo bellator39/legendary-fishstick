@@ -26,4 +26,6 @@ public class OrderList {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    private Integer count;
+
 }

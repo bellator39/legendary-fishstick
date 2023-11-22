@@ -8,10 +8,10 @@
     <#if user??>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="/order/user/${currentUserId}"><i class="fa fa-heart"></i> <span>${orderServiceApi.getAllByUser(currentUserId)?size}</span></a></li>
+                <li><a href="/cart/user/${cartId}"><i class="fa fa-shopping-bag"></i> <span>${cartProductService.countProductsInCart(cartId)}</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">item: <span>$${cartProductService.calculateTotalPriceInCart(cartId)}</span></div>
         </div>
     </#if>
     <div class="humberger__menu__widget">
@@ -125,7 +125,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="/order/user/${currentUserId}"><i class="fa fa-heart"></i> <span>${orderServiceApi.getAllByUser(currentUserId)?size}</span></a></li>
                             <li><a href="/cart/user/${cartId}"><i class="fa fa-shopping-bag"></i> <span>${cartProductService.countProductsInCart(cartId)}</span></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span>$${cartProductService.calculateTotalPriceInCart(cartId)}</span></div>

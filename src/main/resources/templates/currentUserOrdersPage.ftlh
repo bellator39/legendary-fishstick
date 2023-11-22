@@ -54,19 +54,17 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Shopping Cart</h2>
+                        <h2>Orders user</h2>
                         <div class="breadcrumb__option">
                             <a href="/">Home</a>
-                            <span>Shopping Cart</span>
+                            <span>Orders User</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Breadcrumb Section End -->
 
-    <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
         <div class="container">
             <div class="row">
@@ -75,42 +73,39 @@
                         <table>
                             <thead>
                             <tr>
-                                <th class="shoping__product">Products</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
-                                <th></th>
+                                <th class="shoping__product">Id Order</th>
+                                <th>Total Price</th>
+                                <th>Products</th>
+                                <th>Date Order</th>
+                                <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <#if cartList?? && cartList?size gt 0>
-                                <#list cartList as cart>
+                            <#if ordersUser?? && ordersUser?size gt 0>
+                                <#list ordersUser as orders>
                                     <tr>
-                                        <td class="shoping__cart__item">
-                                            <img width="100" height="100" src="${cart.product.photoUrl}" alt="">
-                                            <h5>${cart.product.name}</h5>
+                                        <td class="shoping__cart__price">
+                                           ${orders.id}
                                         </td>
                                         <td class="shoping__cart__price">
-                                            $${cart.product.price}
+                                            $${orders.totalPrice}
                                         </td>
                                         <td class="shoping__cart__quantity" style="pointer-events: none">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="${cart.count}" data-max="${cart.product.count}">
-                                                </div>
-                                            </div>
+                                            <#list orders.orderLists as ol>
+                                                ${ol.product.name},
+                                            </#list>
                                         </td>
                                         <td class="shoping__cart__total">
-                                            $${cart.product.price * cart.count}
+                                            ${orders.dateOrder}
                                         </td>
-                                        <td class="shoping__cart__item__close">
-                                            <a href="/cart/remove/cart/${cartId}/${cart.id}"><span class="icon_close"></span></a>
+                                        <td class="shoping__cart__price">
+                                            ${orders.status}
                                         </td>
                                     </tr>
                                 </#list>
                                 <#else>
                                 <tr>
-                                    <td>Cart is empty.</td>
+                                    <td>Orders is empty.</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -126,43 +121,10 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="/product/all" class="primary-btn">CONTINUE SHOPPING</a>
-                         <#if cartList?size gt 0>
-                             <a href="/cart/user/${cartId}/clear" class="primary-btn" style="float: right;"><span class="icon_loading"></span>
-                                 Clear cart</a>
-                             <#else>
-                                 <a href="/cart/user/${cartId}/clear" style="pointer-events: none" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                                     Clear cart</a>
-
-                            </#if>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
-                        <ul>
-                            <li>Subtotal <span>$${cartProductService.calculateTotalPriceInCart(cartId)}.00</span></li>
-                            <li>Total <span>$${cartProductService.calculateTotalPriceInCart(cartId)}.00</span></li>
-                        </ul>
-                        <#if cartList?size gt 0>
-                        <a href="/order/checkout/${cartId}" class="primary-btn">PROCEED TO CHECKOUT</a>
-                            <#else>
-                        <a href="" style="pointer-events: none;background-color: grey" class="primary-btn">PROCEED TO CHECKOUT</a>
-                        </#if>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Shoping Cart Section End -->
+
 </@commonPage.page>

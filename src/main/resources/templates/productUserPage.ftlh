@@ -147,7 +147,7 @@
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>${sales.name}</span>
-                                                <h5><a href="/product/category/${sales.id}">${sales.categoryProduct.name}</a></h5>
+                                                <h5><a href="/product/category/${sales.categoryProduct.id}">${sales.categoryProduct.name}</a></h5>
                                                 <div class="product__item__price">$${sales.price}<span>$${sales.price+10}</span></div>
                                             </div>
                                         </div>

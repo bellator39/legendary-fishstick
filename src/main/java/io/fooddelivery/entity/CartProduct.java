@@ -33,4 +33,5 @@ public class CartProduct {
     @Column(name = "date_add")
     private Date dateAdd;
 
+
 }

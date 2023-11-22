@@ -3,6 +3,7 @@ package io.fooddelivery.entity;
 import javax.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +34,9 @@ public class Order {
 
     private String email;
 
+    @ManyToOne
+    private User userOrder;
+
     @Column(name = "order_notes")
     private String orderNotes;
 
@@ -44,7 +48,7 @@ public class Order {
     @Column(name = "date_order")
     private Date dateOrder;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderList> orderLists;
+    @OneToMany(mappedBy = "order",fetch = FetchType.EAGER)
+    private List<OrderList> orderLists = new ArrayList<OrderList>();
 
 }

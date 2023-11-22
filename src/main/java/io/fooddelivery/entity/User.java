@@ -47,6 +47,9 @@ public class User implements UserDetails {
     @OneToOne(mappedBy = "user")
     private CartUser cartUsers;
 
+    @OneToMany(mappedBy = "userOrder")
+    private List<Order>orderList;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(userRole);
@@ -85,5 +88,6 @@ public class User implements UserDetails {
     public Long getCartId(){
         return getCartUsers().getId();
     }
+
 
 }

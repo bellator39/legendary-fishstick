@@ -5,6 +5,7 @@ import io.fooddelivery.entity.Product;
 import io.fooddelivery.entity.ProductReview;
 import io.fooddelivery.repository.CategoryProductRepository;
 import io.fooddelivery.service.api.CartProductServiceApi;
+import io.fooddelivery.service.api.OrderServiceApi;
 import io.fooddelivery.service.api.ProductReviewServiceApi;
 import io.fooddelivery.service.api.ProductServiceApi;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,8 @@ public class ProductController {
     private final CategoryProductRepository categoryProductRepository;
     private final ProductReviewServiceApi productReviewServiceApi;
     private final CartProductServiceApi cartProductServiceApi;
+    private final OrderServiceApi orderServiceApi;
+
     @GetMapping("/all")
     public String productShop(Model model){
         List<Product> productList = productServiceApi.getAllProduct();
@@ -35,7 +38,7 @@ public class ProductController {
         model.addAttribute("productList",productList);
         model.addAttribute("salesProductList",productList.stream().skip(3).limit(6).toList());
         model.addAttribute("cartProductService",cartProductServiceApi);
-
+        model.addAttribute("orderServiceApi",orderServiceApi);
         return "productUserPage";
     }
 
@@ -52,6 +55,7 @@ public class ProductController {
         model.addAttribute("lastProductList",lastProduct);
         model.addAttribute("productDetailes",productById);
         model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
 
         return "productDetailsUserPage";
     }
@@ -60,6 +64,7 @@ public class ProductController {
     public String productReview(Model model,@PathVariable("idProduct")Long idProduct){
         model.addAttribute("product",productServiceApi.getProductById(idProduct));
         model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
 
         return "productReviewUserPage";
     }
@@ -96,6 +101,7 @@ public class ProductController {
         model.addAttribute("categoryList",categoryProductRepository.findAll());
         model.addAttribute("salesProductList",productListByCategory.stream().limit(6).toList());
         model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
 
         return "productUserPage";
     }
@@ -116,12 +122,14 @@ public class ProductController {
             model.addAttribute("categoryList", categoryProductRepository.findAll());
             model.addAttribute("salesProductList", productByPrice.stream().limit(6).toList());
             model.addAttribute("cartProductService",cartProductServiceApi);
+            model.addAttribute("orderServiceApi",orderServiceApi);
         }else{
             model.addAttribute("productList", Collections.emptyList());
             model.addAttribute("lastProductList", lastProduct);
             model.addAttribute("categoryList", categoryProductRepository.findAll());
             model.addAttribute("salesProductList", lastProduct.stream().limit(6).toList());
             model.addAttribute("cartProductService",cartProductServiceApi);
+            model.addAttribute("orderServiceApi",orderServiceApi);
         }
 
         return "productUserPage";
@@ -138,6 +146,7 @@ public class ProductController {
         model.addAttribute("categoryList", categoryProductRepository.findAll());
         model.addAttribute("salesProductList", allByName.stream().limit(6).toList());
         model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
 
         return "productUserPage";
 

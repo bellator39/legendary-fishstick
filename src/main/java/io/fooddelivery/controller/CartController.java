@@ -6,6 +6,7 @@ import io.fooddelivery.entity.Product;
 import io.fooddelivery.repository.CartUserRepository;
 import io.fooddelivery.repository.CategoryProductRepository;
 import io.fooddelivery.service.api.CartProductServiceApi;
+import io.fooddelivery.service.api.OrderServiceApi;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -23,15 +24,16 @@ public class CartController {
     private final CartProductServiceApi cartProductServiceApi;
     private final CartUserRepository cartUserRepository;
     private final CategoryProductRepository categoryProductRepository;
-
+    private final OrderServiceApi orderServiceApi;
     @GetMapping("/user/{idCart}")
     public String userCart(@PathVariable("idCart")Long idCart, Model model){
         List<CartProduct> cartUserList = cartProductServiceApi.findCartProductByCartUser(cartUserRepository.getById(idCart));
         model.addAttribute("categoryList",categoryProductRepository.findAll());
         model.addAttribute("cartList",cartUserList);
         model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
+
         double sum = cartUserList.stream().mapToDouble(o1 -> o1.getProduct().getPrice()).sum();
-        System.out.println(sum);
         return "cartUserPage";
     }
 
