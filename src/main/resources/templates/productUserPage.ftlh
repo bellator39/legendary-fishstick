@@ -1,5 +1,5 @@
 <#import "components/commonUserComponent.ftlh" as commonPage>
-
+<#include "components/securityCred.ftlh"/>
 <@commonPage.page pageName="Shop">
     <section class="hero hero-normal">
         <div class="container">
@@ -138,14 +138,16 @@
                                                  data-setbg="${sales.photoUrl}">
                                                 <div class="product__discount__percent">-20%</div>
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="/product/${sales.id}"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a href="/product/review/${sales.id}"><i class="fa fa-pencil-square-o"></i></a></li>
+                                                    <li><a href="/product/${sales.id}"><i class="fa fa-info-circle"></i></a></li>
+                                                    <#if cartId?? && sales.count gt 0>
+                                                        <li><a href="/cart/add/cart/${sales.id}/1/${cartId}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    </#if>
                                                 </ul>
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>${sales.name}</span>
-                                                <h5><a href="#">${sales.categoryProduct.name}</a></h5>
+                                                <h5><a href="/product/category/${sales.id}">${sales.categoryProduct.name}</a></h5>
                                                 <div class="product__item__price">$${sales.price}<span>$${sales.price+10}</span></div>
                                             </div>
                                         </div>
@@ -158,13 +160,6 @@
                     <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort">
-                                    <span>Sort By</span>
-                                    <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
-                                    </select>
-                                </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
@@ -180,9 +175,11 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="${product.photoUrl}">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="/product/${product.id}"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="/product/review/${product.id}"><i class="fa fa-pencil-square-o"></i></a></li>
+                                        <li><a href="/product/${product.id}"><i class="fa fa-info-circle"></i></a></li>
+                                        <#if cartId?? && product.count gt 0>
+                                            <li><a href="/cart/add/cart/${product.id}/1/${cartId}"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </#if>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

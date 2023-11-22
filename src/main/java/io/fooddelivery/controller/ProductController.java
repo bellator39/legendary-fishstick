@@ -4,6 +4,7 @@ import io.fooddelivery.entity.CategoryProduct;
 import io.fooddelivery.entity.Product;
 import io.fooddelivery.entity.ProductReview;
 import io.fooddelivery.repository.CategoryProductRepository;
+import io.fooddelivery.service.api.CartProductServiceApi;
 import io.fooddelivery.service.api.ProductReviewServiceApi;
 import io.fooddelivery.service.api.ProductServiceApi;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class ProductController {
     private final ProductServiceApi productServiceApi;
     private final CategoryProductRepository categoryProductRepository;
     private final ProductReviewServiceApi productReviewServiceApi;
-
+    private final CartProductServiceApi cartProductServiceApi;
     @GetMapping("/all")
     public String productShop(Model model){
         List<Product> productList = productServiceApi.getAllProduct();
@@ -33,6 +34,7 @@ public class ProductController {
         model.addAttribute("categoryList",categoryProductRepository.findAll());
         model.addAttribute("productList",productList);
         model.addAttribute("salesProductList",productList.stream().skip(3).limit(6).toList());
+        model.addAttribute("cartProductService",cartProductServiceApi);
 
         return "productUserPage";
     }
@@ -49,12 +51,16 @@ public class ProductController {
         model.addAttribute("categoryList",categoryProductRepository.findAll());
         model.addAttribute("lastProductList",lastProduct);
         model.addAttribute("productDetailes",productById);
+        model.addAttribute("cartProductService",cartProductServiceApi);
+
         return "productDetailsUserPage";
     }
 
     @GetMapping("/review/{idProduct}")
     public String productReview(Model model,@PathVariable("idProduct")Long idProduct){
         model.addAttribute("product",productServiceApi.getProductById(idProduct));
+        model.addAttribute("cartProductService",cartProductServiceApi);
+
         return "productReviewUserPage";
     }
 
@@ -73,6 +79,7 @@ public class ProductController {
         Product productById = productServiceApi.getProductById(idProduct);
         productReview.setProduct(productById);
         productReviewServiceApi.saveProductReview(productReview);
+
         return "redirect:/product/"+idProduct;
     }
 
@@ -88,6 +95,7 @@ public class ProductController {
         model.addAttribute("lastProductList",lastProduct);
         model.addAttribute("categoryList",categoryProductRepository.findAll());
         model.addAttribute("salesProductList",productListByCategory.stream().limit(6).toList());
+        model.addAttribute("cartProductService",cartProductServiceApi);
 
         return "productUserPage";
     }
@@ -107,11 +115,13 @@ public class ProductController {
             model.addAttribute("lastProductList", lastProduct);
             model.addAttribute("categoryList", categoryProductRepository.findAll());
             model.addAttribute("salesProductList", productByPrice.stream().limit(6).toList());
+            model.addAttribute("cartProductService",cartProductServiceApi);
         }else{
             model.addAttribute("productList", Collections.emptyList());
             model.addAttribute("lastProductList", lastProduct);
             model.addAttribute("categoryList", categoryProductRepository.findAll());
             model.addAttribute("salesProductList", lastProduct.stream().limit(6).toList());
+            model.addAttribute("cartProductService",cartProductServiceApi);
         }
 
         return "productUserPage";
@@ -127,6 +137,7 @@ public class ProductController {
         model.addAttribute("lastProductList", lastProduct);
         model.addAttribute("categoryList", categoryProductRepository.findAll());
         model.addAttribute("salesProductList", allByName.stream().limit(6).toList());
+        model.addAttribute("cartProductService",cartProductServiceApi);
 
         return "productUserPage";
 

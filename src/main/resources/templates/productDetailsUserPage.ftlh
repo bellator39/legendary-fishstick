@@ -1,5 +1,5 @@
 <#import "components/commonUserComponent.ftlh" as commonPage>
-
+<#include "components/securityCred.ftlh"/>
 <@commonPage.page pageName="Shop">
     <section class="hero hero-normal">
         <div class="container">
@@ -36,7 +36,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5><a href="tel:375298281234">+375 29 828 12 34</a></h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -92,17 +92,21 @@
                         </div>
                         <div class="product__details__price">$${productDetailes.price}</div>
                         <p>${productDetailes.description}</p>
-                        <form>
-                        <div class="product__details__quantity" >
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="number" value="1" data-max="${productDetailes.count}">
+                        <#if user??>
+                                <form action="/cart/add/cart/${productDetailes.id}/${cartId}" method="post">
+                                <div class="product__details__quantity" >
+                                    <div class="quantity">
+                                        <div class="pro-qty">
+                                            <input name="count" type="number" value="1" data-max="${productDetailes.count}">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
+                                    <#if productDetailes.count gt 0>
+                                        <button type="submit" href="#" class="site-btn">ADD TO CARD</button>
+                                    </#if>
+                            </#if>
+                        <a href="/product/review/${productDetailes.id}" class="heart-icon"><span class="icon_pencil-edit_alt"></span></a>
                         </form>
-                        <a href="/product/review/${productDetailes.id}" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span><#if productDetailes.count gt 0>In Stock
                                                                 <#else>
@@ -186,9 +190,11 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="${product.photoUrl}">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="/product/${product.id}"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="/product/review/${product.id}"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="/product/${product.id}"><i class="fa fa-info-circle"></i></a></li>
+                                        <#if cartId??>
+                                            <li><a href="/cart/add/cart/${product.id}/1/${cartId}"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </#if>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

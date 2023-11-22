@@ -1,5 +1,5 @@
 <#import "components/commonUserComponent.ftlh" as commonPage>
-
+<#include "components/securityCred.ftlh"/>
 <@commonPage.page pageName="Contact">
     <#if message??>
         <script>

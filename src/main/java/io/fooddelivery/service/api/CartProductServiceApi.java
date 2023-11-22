@@ -9,4 +9,8 @@ public interface CartProductServiceApi {
     CartProduct saveCardProduct(CartProduct cartProduct);
     CartProduct deleteCartProduct(Long idCartProduct);
     List<CartProduct> findCartProductByCartUser(CartUser cartUser);
+    int countProductsInCart(Long cartUserId);
+    double calculateTotalPriceInCart(Long cartUserId);
+
+    void clearCartProduct(Long idCart);
 }

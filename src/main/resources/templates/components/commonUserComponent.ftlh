@@ -1,4 +1,5 @@
 <#import "navbarUserComponent.ftlh" as navbar>
+
 <#macro page pageName>
     <html lang="zxx">
 

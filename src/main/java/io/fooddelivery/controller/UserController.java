@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
     private final UserServiceApi userService;
 
-
     @GetMapping("/signup")
     public String signUpUser(Model model){
         return "signup";

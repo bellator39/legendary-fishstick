@@ -1,5 +1,5 @@
 <#import "components/commonUserComponent.ftlh" as commonPage>
-
+<#include "components/securityCred.ftlh"/>
 <@commonPage.page pageName="Shop">
     <section class="breadcrumb-section set-bg" data-setbg="/static/main_style/img/breadcrumb.jpg">
         <div class="container">

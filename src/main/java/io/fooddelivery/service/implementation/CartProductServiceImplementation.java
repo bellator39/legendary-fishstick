@@ -24,10 +24,10 @@ public class CartProductServiceImplementation implements CartProductServiceApi {
     private final ProductServiceApi productServiceApi;
 
 
-    @Transactional
+
     @Override
     public CartProduct saveCardProduct(CartProduct cartProduct) {
-        Product productFromCart = cartProduct.getProduct();
+        Product productFromCart = productServiceApi.getProductById(cartProduct.getProduct().getId());
         int currentCount = productFromCart.getCount();
         int currentCountOfBut = productFromCart.getCountOfBuy();;
 
@@ -39,8 +39,10 @@ public class CartProductServiceImplementation implements CartProductServiceApi {
         }
 
         CartProduct cartProductSave = cartProductRepository.save(cartProduct);
-
+        cartProductSave.setDateAdd(new Date());
         productServiceApi.updateProduct(productFromCart);
+
+        log.info("Save product to user cart in {} " , new Date());
         return cartProductSave;
     }
 
@@ -49,6 +51,9 @@ public class CartProductServiceImplementation implements CartProductServiceApi {
         Optional<CartProduct> cartProductById = cartProductRepository.findById(idCartProduct);
         if(cartProductById.isPresent()){
             log.info("Delete product from cart in {}",new Date());
+            Product productFromCart = cartProductById.get().getProduct();
+            productFromCart.setCount(productFromCart.getCount()+cartProductById.get().getCount());
+            productServiceApi.updateProduct(productFromCart);
             cartProductRepository.delete(cartProductById.get());
             return cartProductById.get();
         }else{
@@ -61,5 +66,27 @@ public class CartProductServiceImplementation implements CartProductServiceApi {
     public List<CartProduct> findCartProductByCartUser(CartUser cartUser) {
         log.info("Get all product by user cart in {}",new Date());
         return cartProductRepository.findCartProductByCartUser(cartUser);
+    }
+
+    @Override
+    public int countProductsInCart(Long cartUserId) {
+        log.info("Get count product in cart user with id - {} in {}",cartUserId,new Date());
+        return cartProductRepository.countProductsInCart(cartUserId);
+    }
+
+    @Override
+    public double calculateTotalPriceInCart(Long cartUserId) {
+        log.info("Get total sum product in cart user with id - {} in {}",cartUserId,new Date());
+        return cartProductRepository.calculateTotalPriceInCart(cartUserId);
+    }
+
+    @Transactional
+    @Override
+    public void clearCartProduct(Long idCart) {
+        CartUser cartUser = CartUser.builder()
+                .id(idCart)
+                .build();
+        log.warn("Delete all cart product by user cart id {} in {}",idCart,new Date());
+        cartProductRepository.deleteAllByCartUser(cartUser);
     }
 }

@@ -1,5 +1,5 @@
 <#import "components/commonUserComponent.ftlh" as commonPage>
-
+<#include "components/securityCred.ftlh"/>
 <@commonPage.page pageName="Home">
     <section class="hero">
         <div class="container">
@@ -117,13 +117,15 @@
                                 <div class="featured__item">
                                     <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                         <ul class="featured__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="/product/${meat.id}"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="/product/review/${meat.id}"><i class="fa fa-pencil-square-o"></i></a></li>
+                                            <li><a href="/product/${meat.id}"><i class="fa fa-info-circle"></i></a></li>
+                                            <#if cartId?? && meat.count gt 0>
+                                                <li><a href="/cart/add/cart/${meat.id}/1/${cartId}"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </#if>
                                         </ul>
                                     </div>
                                     <div class="featured__item__text">
-                                        <h6><a href="#">${meat.name}</a></h6>
+                                        <h6><a href="/product/${meat.id}">${meat.name}</a></h6>
                                         <h5>$${meat.price}</h5>
                                     </div>
                                 </div>
@@ -136,13 +138,15 @@
                                         <div class="featured__item">
                                             <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                                 <ul class="featured__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="/product/${fastfood.id}"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a href="/product/review/${fastfood.id}"><i class="fa fa-pencil-square-o"></i></a></li>
+                                                    <li><a href="/product/${fastfood.id}"><i class="fa fa-info-circle"></i></a></li>
+                                                    <#if cartId?? && fastfood.count gt 0>
+                                                        <li><a href="/cart/add/cart/${fastfood.id}/1/${cartId}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    </#if>
                                                 </ul>
                                             </div>
                                             <div class="featured__item__text">
-                                                <h6><a href="#">${fastfood.name}</a></h6>
+                                                <h6><a href="/product/${fastfood.id}">${fastfood.name}</a></h6>
                                                 <h5>$${fastfood.price}</h5>
                                             </div>
                                         </div>
@@ -155,13 +159,15 @@
                                         <div class="featured__item">
                                             <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                                 <ul class="featured__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="/product/${veg.id}"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    <li><a href="/product/review/${veg.id}"><i class="fa fa-pencil-square-o"></i></a></li>
+                                                    <li><a href="/product/${veg.id}"><i class="fa fa-info-circle"></i></a></li>
+                                                     <#if cartId?? && veg.count gt 0>
+                                                        <li><a href="/cart/add/cart/${veg.id}/1/${cartId}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                     </#if>
                                                 </ul>
                                             </div>
                                             <div class="featured__item__text">
-                                                <h6><a href="#">${veg.name}</a></h6>
+                                                <h6><a href="/product/${veg.id}">${veg.name}</a></h6>
                                                 <h5>$${veg.price}</h5>
                                             </div>
                                         </div>
@@ -174,13 +180,15 @@
                                 <div class="featured__item">
                                     <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
                                         <ul class="featured__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="/product/${fr.id}"><i class="fa fa-retweet"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            <li><a href="/product/review/${fr.id}"><i class="fa fa-pencil-square-o"></i></a></li>
+                                            <li><a href="/product/${fr.id}"><i class="fa fa-info-circle"></i></a></li>
+                                            <#if cartId?? && fr.count gt 0>
+                                            <li><a href="/cart/add/cart/${fr.id}/1/${cartId}"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </#if>
                                         </ul>
                                     </div>
                                     <div class="featured__item__text">
-                                        <h6><a href="#">${fr.name}</a></h6>
+                                        <h6><a href="/product/${fr.id}">${fr.name}</a></h6>
                                         <h5>$${fr.price}</h5>
                                     </div>
                                 </div>

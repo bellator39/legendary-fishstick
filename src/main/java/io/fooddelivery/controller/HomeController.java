@@ -6,6 +6,7 @@ import io.fooddelivery.entity.Contacts;
 import io.fooddelivery.entity.Product;
 import io.fooddelivery.repository.CategoryProductRepository;
 import io.fooddelivery.service.api.BlogServiceApi;
+import io.fooddelivery.service.api.CartProductServiceApi;
 import io.fooddelivery.service.api.ContactServiceApi;
 import io.fooddelivery.service.api.ProductServiceApi;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +28,8 @@ public class HomeController {
     private final CategoryProductRepository categoryProductRepository;
     private final ProductServiceApi productServiceApi;
     private final BlogServiceApi blogServiceApi;
-
     private final ContactServiceApi contactServiceApi;
+    private final CartProductServiceApi cartProductServiceApi;
     @GetMapping("/")
     public String homePage(Model model){
         List<Product> meatList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(10L).build()).stream().limit(5).toList();
@@ -49,13 +50,14 @@ public class HomeController {
         model.addAttribute("topRatedProductList",topRatedProduct);
         model.addAttribute("reviewProductList",reviewProduct);
         model.addAttribute("blogList",blogList);
-
+        model.addAttribute("cartProductService",cartProductServiceApi);
 
         return "homeUserPage";
     }
 
     @GetMapping("/contact")
     public String contactPage(Model model){
+        model.addAttribute("cartProductService",cartProductServiceApi);
         return "contactUserPage";
     }
 
@@ -73,9 +75,11 @@ public class HomeController {
         Contacts contactSaveResult = contactServiceApi.saveContact(contactsSave);
 
         if(contactSaveResult!=null){
+            model.addAttribute("cartProductService",cartProductServiceApi);
             model.addAttribute("message",String.format("Dear %s thanks for message for us! We will answer you soon",name));
             return "contactUserPage";
         }else{
+            model.addAttribute("cartProductService",cartProductServiceApi);
             model.addAttribute("message","Something was wrong, please try later!");
             return "contactUserPage";
 
