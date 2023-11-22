@@ -86,7 +86,14 @@ public class HomeController {
             return "contactUserPage";
 
         }
+    }
 
+    @GetMapping("/about")
+    public String aboutPage(Model model){
+        model.addAttribute("categoryList",categoryProductRepository.findAll());
+        model.addAttribute("cartProductService",cartProductServiceApi);
+        model.addAttribute("orderServiceApi",orderServiceApi);
+        return "aboutUsUserPage";
     }
 
 }

@@ -92,4 +92,15 @@ public class BlogServiceImplementation implements BlogServiceApi {
             return null;
         }
     }
+
+    @Override
+    public List<Blog> findBlogsByNameLike(String name) {
+        if(name.equals("")){
+            log.info("Name equals empty string, return all in {}",new Date());
+            return blogRepository.findAll();
+        }else{
+            log.info("Get all blog by name - {} in {}",name,new Date());
+            return blogRepository.findBlogsByNameLike(name);
+        }
+    }
 }

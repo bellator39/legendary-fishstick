@@ -38,8 +38,8 @@
         <ul>
             <li class="<#if pageName=="Home">active</#if>"><a href="/">Home</a></li>
             <li class="<#if pageName=="Shop">active</#if>"><a href="/product/all">Shop</a></li>
-            <li class="<#if pageName=="About Us">active</#if>">><a href="./blog.html">About us</a></li>
-            <li class="<#if pageName=="Blog">active</#if>"><a href="./blog.html">Blog</a></li>
+            <li class="<#if pageName=="About Us">active</#if>">><a href="/about">About us</a></li>
+            <li class="<#if pageName=="Blog">active</#if>"><a href="/blog/all">Blog</a></li>
             <li class="<#if pageName=="Contact">active</#if>"><a href="/contact">Contact</a></li>
         </ul>
     </nav>
@@ -115,8 +115,8 @@
                     <ul>
                         <li class="<#if pageName=="Home">active</#if>"><a href="/">Home</a></li>
                         <li class="<#if pageName=="Shop">active</#if>"><a href="/product/all">Shop</a></li>
-                        <li class="<#if pageName=="About">active</#if>"><a href="./blog.html">About us</a></li>
-                        <li class="<#if pageName=="Blog">active</#if>"><a href="./blog.html">Blog</a></li>
+                        <li class="<#if pageName=="About">active</#if>"><a href="/about">About us</a></li>
+                        <li class="<#if pageName=="Blog">active</#if>"><a href="/blog/all">Blog</a></li>
                         <li class="<#if pageName=="Contact">active</#if>"><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
