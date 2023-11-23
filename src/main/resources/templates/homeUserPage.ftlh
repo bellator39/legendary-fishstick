@@ -115,7 +115,7 @@
                         <#list meatProductList as meat>
                             <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                                 <div class="featured__item">
-                                    <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
+                                    <div class="featured__item__pic set-bg" data-setbg="${meat.photoUrl}">
                                         <ul class="featured__item__pic__hover">
                                             <li><a href="/product/review/${meat.id}"><i class="fa fa-pencil-square-o"></i></a></li>
                                             <li><a href="/product/${meat.id}"><i class="fa fa-info-circle"></i></a></li>
@@ -136,7 +136,7 @@
                         <#list fastFoodList as fastfood>
                             <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood">
                                         <div class="featured__item">
-                                            <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
+                                            <div class="featured__item__pic set-bg" data-setbg="${fastfood.photoUrl}">
                                                 <ul class="featured__item__pic__hover">
                                                     <li><a href="/product/review/${fastfood.id}"><i class="fa fa-pencil-square-o"></i></a></li>
                                                     <li><a href="/product/${fastfood.id}"><i class="fa fa-info-circle"></i></a></li>
@@ -157,7 +157,7 @@
                         <#list vegetablesList as veg>
                             <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables">
                                         <div class="featured__item">
-                                            <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
+                                            <div class="featured__item__pic set-bg" data-setbg="${veg.photoUrl}">
                                                 <ul class="featured__item__pic__hover">
                                                     <li><a href="/product/review/${veg.id}"><i class="fa fa-pencil-square-o"></i></a></li>
                                                     <li><a href="/product/${veg.id}"><i class="fa fa-info-circle"></i></a></li>
@@ -178,7 +178,7 @@
                         <#list fruitsList as fr>
                             <div class="col-lg-3 col-md-4 col-sm-6 mix fruits">
                                 <div class="featured__item">
-                                    <div class="featured__item__pic set-bg" data-setbg="/static/main_style/img/featured/feature-1.jpg">
+                                    <div class="featured__item__pic set-bg" data-setbg="${fr.photoUrl}">
                                         <ul class="featured__item__pic__hover">
                                             <li><a href="/product/review/${fr.id}"><i class="fa fa-pencil-square-o"></i></a></li>
                                             <li><a href="/product/${fr.id}"><i class="fa fa-info-circle"></i></a></li>
@@ -320,7 +320,7 @@
                                         <li><i class="fa fa-calendar-o"></i> ${blog.dateCreate}</li>
                                         <li><i class="fa fa-comment-o"></i> ${blog.blogCategory.name}</li>
                                     </ul>
-                                    <h5><a href="#">${blog.title}</a></h5>
+                                    <h5><a href="/blog/${blog.id}">${blog.title}</a></h5>
                                     <p>${blog.text} </p>
                                 </div>
                             </div>

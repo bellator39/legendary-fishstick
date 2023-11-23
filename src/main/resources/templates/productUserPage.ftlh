@@ -108,7 +108,7 @@
                                             <#list lastProductList as product>
                                                 <a href="/product/${product.id}" class="latest-product__item">
                                                     <div class="latest-product__item__pic">
-                                                        <img src="${product.photoUrl}" alt="">
+                                                        <img width="70" height="70" src="${product.photoUrl}" alt="">
                                                     </div>
                                                     <div class="latest-product__item__text">
                                                         <h6>${product.name}</h6>

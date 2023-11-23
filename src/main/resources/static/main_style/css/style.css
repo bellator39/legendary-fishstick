@@ -846,6 +846,7 @@ ol {
 	position: relative;
 	overflow: hidden;
 	background-position: center center;
+	border-radius: 10px;
 }
 
 .featured__item__pic__hover {
@@ -980,8 +981,9 @@ ol {
 }
 
 .latest-product__item__pic img {
-	height: 110px;
-	width: 110px;
+	height: 70px !important;
+	width: 70px !important;
+	border-radius: 7px;
 }
 
 .latest-product__item__text {
@@ -1268,6 +1270,7 @@ ol {
 	height: 270px;
 	position: relative;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 .product__discount__item__pic .product__discount__percent {
@@ -1522,6 +1525,7 @@ ol {
 	height: 270px;
 	position: relative;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 .product__item__pic__hover {
@@ -1653,6 +1657,7 @@ ol {
 
 .product__details__pic__item img {
 	min-width: 100%;
+	border-radius: 15px;
 }
 
 .product__details__pic__slider img {
@@ -2291,6 +2296,7 @@ ol {
 
 .blog__item__pic img {
 	min-width: 100%;
+	border-radius: 10px;
 }
 
 .blog__item__text {
@@ -2449,6 +2455,10 @@ ol {
 	margin-right: 20px;
 }
 
+.blog__sidebar__recent__item__pic img{
+	border-radius: 8px !important;
+}
+
 .blog__sidebar__recent__item__text {
 	overflow: hidden;
 }
@@ -2545,6 +2555,7 @@ ol {
 
 .blog__details__text img {
 	margin-bottom: 30px;
+	border-radius: 10px;
 }
 
 .blog__details__text p {
