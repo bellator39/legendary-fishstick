@@ -43,7 +43,7 @@ public class OrderController {
     @PostMapping("/checkout/{userId}/{cartId}")
     public String orderCheckout(@PathVariable("userId")Long userId,
                                 @PathVariable("cartId")Long cartId,
-                                @RequestParam("totalprice")Long totalPrice,
+                                @RequestParam("totalprice")String totalPrice,
                                 @RequestParam("city")String city,
                                 @RequestParam("email")String email,
                                 @RequestParam("name")String name,
@@ -52,8 +52,9 @@ public class OrderController {
                                 @RequestParam("soname")String soname,
                                 @RequestParam("street")String street,
                                 Model model){
+
         Order orderCheckout = Order.builder()
-                .totalPrice(totalPrice)
+                .totalPrice(Double.parseDouble(totalPrice.replace(',','.')))
                 .city(city)
                 .email(email)
                 .name(name)
@@ -78,8 +79,7 @@ public class OrderController {
         model.addAttribute("cartProductService",cartProductServiceApi);
 
         if(orderCheckoutResult!=null){
-            model.addAttribute("message",String.format("Dear %s thank you for checkout order!",name));
-            return "redirect:/cart/user/"+userId;
+            return String.format("redirect:/card/%s/%s/%s",totalPrice,email,orderCheckoutResult.getId());
         }else{
             model.addAttribute("message","Something was wrong, please try yet!");
             return "orderUserPage";
@@ -94,6 +94,14 @@ public class OrderController {
         model.addAttribute("cartProductService",cartProductServiceApi);
         model.addAttribute("ordersUser",orderServiceApi.getAllByUser(userId));
         return "currentUserOrdersPage";
+    }
+
+    @GetMapping("/checkout/success/{orderId}")
+    public String checkoutSuccess(@PathVariable("orderId")Long orderId){
+        Order orderById = orderServiceApi.getOrderById(orderId);
+        orderById.setStatus("Paid in the delivery process.");
+        orderServiceApi.updateOrder(orderById);
+        return "redirect:/order/user/"+orderById.getUserOrder().getId();
     }
 
 }
