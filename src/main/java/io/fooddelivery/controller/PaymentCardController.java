@@ -33,7 +33,7 @@ public class PaymentCardController {
         model.addAttribute("email", email);
         List<OrderList> orderLists = orderServiceApi.getOrderById(orderId).getOrderLists();
         String productsName = orderLists.stream()
-                .map(o1->o1.getProduct().getName()) // Извлекаем поле "строка"
+                .map(o1->o1.getProduct().getName())
                 .collect(Collectors.joining(", "));
         model.addAttribute("productName", productsName);
         return "checkoutUserPage";
