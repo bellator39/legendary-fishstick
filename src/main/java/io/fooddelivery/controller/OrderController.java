@@ -99,7 +99,7 @@ public class OrderController {
     @GetMapping("/checkout/success/{orderId}")
     public String checkoutSuccess(@PathVariable("orderId")Long orderId){
         Order orderById = orderServiceApi.getOrderById(orderId);
-        orderById.setStatus("Paid in the delivery process.");
+        orderById.setStatus("Pending");
         orderServiceApi.updateOrder(orderById);
         return "redirect:/order/user/"+orderById.getUserOrder().getId();
     }
