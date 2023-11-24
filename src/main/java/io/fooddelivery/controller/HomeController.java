@@ -30,10 +30,10 @@ public class HomeController {
     private final OrderServiceApi orderServiceApi;
     @GetMapping("/")
     public String homePage(Model model){
-        List<Product> meatList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(10L).build()).stream().limit(5).toList();
-        List<Product> vegetablesList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(11L).build()).stream().limit(5).toList();
-        List<Product> fastFoodList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(17L).build()).stream().limit(5).toList();
-        List<Product> fruits = productServiceApi.getAllByCategory(CategoryProduct.builder().id(13L).build()).stream().limit(5).toList();
+        List<Product> meatList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(10L).build()).stream().limit(3).toList();
+        List<Product> vegetablesList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(11L).build()).stream().limit(3).toList();
+        List<Product> fastFoodList = productServiceApi.getAllByCategory(CategoryProduct.builder().id(17L).build()).stream().limit(3).toList();
+        List<Product> fruits = productServiceApi.getAllByCategory(CategoryProduct.builder().id(13L).build()).stream().limit(3).toList();
         List<Product> lastProduct = productServiceApi.getAllProduct().stream().limit(3).toList();
         List<Product> topRatedProduct = productServiceApi.getMostReviewProduct().stream().limit(3).toList();
         List<Product> reviewProduct = productServiceApi.getAllProduct().stream().skip(3).limit(3).toList();

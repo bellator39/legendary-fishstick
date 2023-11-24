@@ -24,15 +24,6 @@ SELECT 13, 'Fruit','Fruit'
 
 INSERT INTO category_product
 (id, description,name)
-SELECT 14, 'Berries','Berries'
-    WHERE
-    NOT EXISTS (
-        SELECT id FROM category_product WHERE id = 14
-    );
-
-
-INSERT INTO category_product
-(id, description,name)
 SELECT 15, 'Ocean Foods','Ocean Foods'
     WHERE
     NOT EXISTS (
@@ -53,21 +44,4 @@ SELECT 17, 'Fastfood','Fastfood'
     WHERE
     NOT EXISTS (
         SELECT id FROM category_product WHERE id = 17
-    );
-
-INSERT INTO category_product
-(id, description,name)
-SELECT 18, 'Onion','Onion'
-    WHERE
-    NOT EXISTS (
-        SELECT id FROM category_product WHERE id = 18
-    );
-
-
-INSERT INTO category_product
-(id, description,name)
-SELECT 19, 'Crisps','Crisps'
-    WHERE
-    NOT EXISTS (
-        SELECT id FROM category_product WHERE id = 19
     );

@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2>${productDetailes.name}</h2>
                         <div class="breadcrumb__option">
                             <a href="/">Home</a>
                             <a href="">${productDetailes.categoryProduct.name}</a>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>Vetgetable’s Package</h3>
+                        <h3>${productDetailes.name}</h3>
                         <div class="product__details__rating">
 
                             <#if averageRating gte 1><i class="fa fa-star"></i></#if>

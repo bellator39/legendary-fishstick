@@ -1,7 +1,7 @@
 INSERT INTO product
 (id, count, count_of_buy, price, weight, category_product_id, date_create, description, name, photo_url, status)
 SELECT
-    777, 120, 0, 5, 1, 11, '2023-11-23', 'Свежий и вкусный огурец, идеально подходит для салатов.', 'Огурец', 'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Available'
+    777, 120, 0, 5, 1, 13, '2023-11-23', 'Свежий и вкусный огурец, идеально подходит для салатов.', 'Огурец', 'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Available'
     WHERE NOT EXISTS (SELECT id FROM product WHERE id = 777);
 
 INSERT INTO product
