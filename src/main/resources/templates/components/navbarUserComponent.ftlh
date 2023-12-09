@@ -41,6 +41,12 @@
         <a href="www.twitter.com"><i class="fa fa-twitter"></i></a>
         <a href="www.linkedin.com"><i class="fa fa-linkedin"></i></a>
         <a href="www.pinterest.com"><i class="fa fa-pinterest-p"></i></a>
+        <#if admin==true>
+            <a href="/admin/dashboard" style="border: none;background-color: transparent"><i class="fa fa-lock"></i> Admin</a>
+        </#if>
+        <#if moderator==true>
+            <a href="/admin/dashboard" style="border: none;background-color: transparent"><i class="fa fa-lock"></i> Moderator</a>
+        </#if>
     </div>
     <div class="humberger__menu__contact">
         <ul>
