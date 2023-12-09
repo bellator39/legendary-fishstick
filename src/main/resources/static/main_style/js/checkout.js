@@ -67,7 +67,7 @@ async function handleSubmit(e) {
     const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-            return_url: "http://localhost:8080/order/checkout/success/"+orderId,
+            return_url: "https://fooddelivery-i1t3.onrender.com/order/checkout/success/"+orderId,
             receipt_email: emailAddress
         },
     });
