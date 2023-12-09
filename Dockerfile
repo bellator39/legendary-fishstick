@@ -5,6 +5,6 @@ COPY ./pom.xml pom.xml
 RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-jre-alpine
-COPY --from=builder target/*.war fooddelivery-0.1.war
+COPY --from=builder target/*.war fooddelivery-0.0.1-SNAPSHOT.war
 EXPOSE 8080
 CMD ["java","-jar", "fooddelivery-0.0.1-SNAPSHOT.war"]
