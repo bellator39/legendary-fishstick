@@ -56,7 +56,7 @@
                                                 ${contact.dateSend}
                                             </td>
                                             <td>
-                                                <a href="editproduct.html" type="button" class="btn btn-primary">
+                                                <a href="/admin/deletecontact/${contact.id}" type="button" class="btn btn-primary">
                                                     <i class="mdi mdi-bitbucket"></i>
                                                 </a>
                                             </td>

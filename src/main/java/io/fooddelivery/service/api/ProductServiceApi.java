@@ -10,6 +10,8 @@ public interface ProductServiceApi {
     Product saveProduct(Product product,Long idCategory);
     Product updateProduct(Product product);
     Product getProductById(Long idProduct);
+
+    Product deleteProduct(Long idProduct);
     List<Product>getAllProduct();
     List<Product>getAllByCategory(CategoryProduct categoryProduct);
     List<Product>getAllByRangePrice(Double lowPrice,Double highPrice);

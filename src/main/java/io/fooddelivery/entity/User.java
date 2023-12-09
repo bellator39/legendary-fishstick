@@ -89,5 +89,12 @@ public class User implements UserDetails {
         return getCartUsers().getId();
     }
 
+    public boolean isAdmin(){
+        return getUserRole()==Role.ADMIN;
+    }
+
+    public boolean isModerator(){
+        return getUserRole()==Role.MODERATOR;
+    }
 
 }

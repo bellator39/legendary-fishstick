@@ -1,12 +1,12 @@
 <#import "components/commonAdminComponent.ftlh" as commonPage>
-<@commonPage.page pageName="ListProduct">
+<@commonPage.page pageName="ListBlogs">
     <div class="content-wrapper">
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">List of blogs
-                            <a href="addnewproduct.html" style="float: right;" type="button" class="btn btn-primary">+</a>
+                            <a href="/admin/addblog" style="float: right;" type="button" class="btn btn-primary">+</a>
                         </h4>
                         <p class="card-description">
                             All blogs in shop
@@ -71,12 +71,12 @@
                                             ${blog.blogCategory.name}
                                         </td>
                                         <td>
-                                            <a href="editproduct.html" type="button" class="btn btn-primary">
+                                            <a href="/admin/editblog/${blog.id}" type="button" class="btn btn-primary">
                                                 <i class="mdi mdi-pencil"></i>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="addnewproduct.html" type="button" class="btn btn-primary">
+                                            <a href="/admin/deleteblog/${blog.id}" type="button" class="btn btn-primary">
                                                 <i class="mdi mdi-bitbucket"></i>
                                             </a>
                                         </td>

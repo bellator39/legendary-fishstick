@@ -24,14 +24,14 @@ public class ProductServiceImplementation implements ProductServiceApi {
 
     @Override
     public Product saveProduct(Product product, Long idCategory) {
-        Optional<CategoryProduct> categoryById = categoryProductRepository.findById(idCategory);
-        if(categoryById.isPresent() && ProductValidator.ProductValidation(product)) {
+         if(ProductValidator.ProductValidation(product)&&!productRepository.existsByName(product.getName())) {
             product.setDateCreate(new Date());
             product.setCountOfBuy(0);
             product.setStatus("In Stock");
-            product.setCategoryProduct(categoryById.get());
+            product.setCategoryProduct(CategoryProduct.builder().id(idCategory).build());
             log.info("Save new product with name - {} in {}",product.getName(),new Date());
-            return product;
+             Product productResultSave = productRepository.save(product);
+             return productResultSave;
         }else {
             log.warn("Cannot save product error with field in {}", new Date());
             return null;
@@ -42,7 +42,8 @@ public class ProductServiceImplementation implements ProductServiceApi {
     public Product updateProduct(Product product) {
         if(ProductValidator.ProductValidation(product)) {
             log.info("Update product with name - {} in {}",product.getName(),new Date());
-            return product;
+            Product productUpdateResult = productRepository.save(product);
+            return productUpdateResult;
         }else {
             log.warn("Cannot update product error with field in {}", new Date());
             return null;
@@ -54,6 +55,19 @@ public class ProductServiceImplementation implements ProductServiceApi {
         Optional<Product> productById = productRepository.findById(idProduct);
         if (productById.isPresent()){
             log.info("Get product by id with {} in {}",idProduct,new Date());
+            return productById.get();
+        }else{
+            log.warn("Product with id - {} was not found in {}",idProduct,new Date());
+            return null;
+        }
+    }
+
+    @Override
+    public Product deleteProduct(Long idProduct) {
+        Optional<Product> productById = productRepository.findById(idProduct);
+        if (productById.isPresent()){
+            log.info("Get product by id with {} in {}",idProduct,new Date());
+            productRepository.delete(productById.get());
             return productById.get();
         }else{
             log.warn("Product with id - {} was not found in {}",idProduct,new Date());

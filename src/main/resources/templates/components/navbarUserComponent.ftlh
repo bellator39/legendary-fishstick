@@ -15,15 +15,7 @@
         </div>
     </#if>
     <div class="humberger__menu__widget">
-        <div class="header__top__right__language">
-            <img src="/static/main_style/img/language.png" alt="">
-            <div>English</div>
-            <span class="arrow_carrot-down"></span>
-            <ul>
-                <li><a href="#">Russian</a></li>
-                <li><a href="#">English</a></li>
-            </ul>
-        </div>
+
         <div class="header__top__right__auth">
             <#if user??>
                 <form action="/logout" method="post">
@@ -45,10 +37,10 @@
     </nav>
     <div id="mobile-menu-wrap"></div>
     <div class="header__top__right__social">
-        <a href="facebook.com"><i class="fa fa-facebook"></i></a>
-        <a href="twitter.com"><i class="fa fa-twitter"></i></a>
-        <a href="linkedin.com"><i class="fa fa-linkedin"></i></a>
-        <a href="pinterest.com"><i class="fa fa-pinterest-p"></i></a>
+        <a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
+        <a href="www.twitter.com"><i class="fa fa-twitter"></i></a>
+        <a href="www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+        <a href="www.pinterest.com"><i class="fa fa-pinterest-p"></i></a>
     </div>
     <div class="humberger__menu__contact">
         <ul>
@@ -75,19 +67,16 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__right">
                         <div class="header__top__right__social">
-                            <a href="facebook.com"><i class="fa fa-facebook"></i></a>
-                            <a href="twitter.com"><i class="fa fa-twitter"></i></a>
-                            <a href="linkedin.com"><i class="fa fa-linkedin"></i></a>
-                            <a href="pinterest.com"><i class="fa fa-pinterest-p"></i></a>
-                        </div>
-                        <div class="header__top__right__language">
-                            <img src="/static/main_style/img/language.png" alt="">
-                            <div>English</div>
-                            <span class="arrow_carrot-down"></span>
-                            <ul>
-                                <li><a href="#">Russian</a></li>
-                                <li><a href="#">English</a></li>
-                            </ul>
+                            <a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
+                            <a href="www.twitter.com"><i class="fa fa-twitter"></i></a>
+                            <a href="www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+                            <a href="www.pinterest.com"><i class="fa fa-pinterest-p"></i></a>
+                            <#if admin==true>
+                                <a href="/admin/dashboard" style="border: none;background-color: transparent"><i class="fa fa-lock"></i> Admin</a>
+                            </#if>
+                            <#if moderator==true>
+                                <a href="/admin/dashboard" style="border: none;background-color: transparent"><i class="fa fa-lock"></i> Moderator</a>
+                            </#if>
                         </div>
                         <div class="header__top__right__auth">
                             <#if user??>
@@ -97,6 +86,7 @@
                             <#else>
                                 <a href="/login"><i class="fa fa-user"></i> Login</a>
                             </#if>
+
                         </div>
                     </div>
                 </div>

@@ -53,9 +53,6 @@
                                         Edit
                                     </th>
                                     <th>
-                                        Delete
-                                    </th>
-                                    <th>
                                         List of order item
                                     </th>
                                 </tr>
@@ -104,13 +101,8 @@
                                                 ${order.dateOrder}
                                             </td>
                                             <td>
-                                                <a href="editproduct.html" type="button" class="btn btn-primary">
+                                                <a href="/admin/editorder/${order.id}" type="button" class="btn btn-primary">
                                                     <i class="mdi mdi-pencil"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="addnewproduct.html" type="button" class="btn btn-primary">
-                                                    <i class="mdi mdi-bitbucket"></i>
                                                 </a>
                                             </td>
                                             <td>

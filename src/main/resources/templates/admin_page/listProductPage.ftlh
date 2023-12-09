@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">List of product
-                            <a href="addnewproduct.html" style="float: right;" type="button" class="btn btn-primary">+</a>
+                            <a href="/admin/addproduct" style="float: right;" type="button" class="btn btn-primary">+</a>
                         </h4>
                         <p class="card-description">
                             All product in shop
@@ -98,18 +98,13 @@
                                             ${product.dateCreate}
                                         </td>
                                         <td>
-                                            <a href="editproduct.html" type="button" class="btn btn-primary">
+                                            <a href="/admin/editproduct/${product.id}" type="button" class="btn btn-primary">
                                                 <i class="mdi mdi-pencil"></i>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="addnewproduct.html" type="button" class="btn btn-primary">
+                                            <a href="/admin/deleteproduct/${product.id}" type="button" class="btn btn-primary">
                                                 <i class="mdi mdi-bitbucket"></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="listofreviewproduct.html" type="button" class="btn btn-primary">
-                                                <i class="mdi mdi-view-list"></i>
                                             </a>
                                         </td>
                                     </tr>

@@ -43,9 +43,6 @@
                                     <th>
                                         Delete
                                     </th>
-                                    <th>
-                                        List of order
-                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -78,18 +75,13 @@
                                                 ${user.dateRegister}
                                             </td>
                                             <td>
-                                                <a href="editproduct.html" type="button" class="btn btn-primary">
+                                                <a href="/admin/edituser/${user.id}" type="button" class="btn btn-primary">
                                                     <i class="mdi mdi-pencil"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="addnewproduct.html" type="button" class="btn btn-primary">
+                                                <a href="/admin/deleteuser/${user.id}" type="button" class="btn btn-primary">
                                                     <i class="mdi mdi-bitbucket"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="listofreviewproduct.html" type="button" class="btn btn-primary">
-                                                    <i class="mdi mdi-view-list"></i>
                                                 </a>
                                             </td>
                                         </tr>
