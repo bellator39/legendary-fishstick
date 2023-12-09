@@ -1,4 +1,6 @@
 <#import "components/commonAdminComponent.ftlh" as commonPage>
+<#include "components/securityCred.ftlh"/>
+
 <@commonPage.page pageName="ListUser">
     <div class="content-wrapper">
         <div class="row">
@@ -52,9 +54,6 @@
                                     <th>
                                         Edit
                                     </th>
-                                    <th>
-                                        List of order item
-                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -105,11 +104,7 @@
                                                     <i class="mdi mdi-pencil"></i>
                                                 </a>
                                             </td>
-                                            <td>
-                                                <a href="listofreviewproduct.html" type="button" class="btn btn-primary">
-                                                    <i class="mdi mdi-view-list"></i>
-                                                </a>
-                                            </td>
+
                                         </tr>
                                     </#list>
                                 <#else>

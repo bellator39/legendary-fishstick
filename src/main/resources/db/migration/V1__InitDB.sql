@@ -15,7 +15,7 @@ create table if not exists blog
         primary key,
     author           varchar(255),
     photo_url        varchar(255),
-    text             varchar(255),
+    text             varchar(3000),
     title            varchar(255)
 );
 

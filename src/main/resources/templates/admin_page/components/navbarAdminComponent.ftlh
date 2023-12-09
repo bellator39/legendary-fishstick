@@ -1,3 +1,5 @@
+<#include "securityCred.ftlh"/>
+
 <#macro navbar pageName>
     <div class="theme-setting-wrapper">
         <div id="settings-trigger"><i class="ti-settings"></i></div>

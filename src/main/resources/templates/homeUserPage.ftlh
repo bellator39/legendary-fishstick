@@ -311,7 +311,10 @@
                 <#if blogList??>
                     <#list blogList as blog>
                         <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="blog__item">
+                            <div class="blog__item" style="  white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 550px;">
                                 <div class="blog__item__pic">
                                     <img src="${blog.photoUrl}" alt="">
                                 </div>

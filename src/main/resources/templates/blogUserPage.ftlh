@@ -125,7 +125,10 @@
                         <#if blogList??>
                             <#list  blogList as bl>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="blog__item">
+                                    <div class="blog__item" style="  white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 550px;">
                                         <div class="blog__item__pic">
                                             <img src="${bl.photoUrl}" alt="">
                                         </div>
@@ -141,22 +144,9 @@
                                 </div>
                             </#list>
                         </#if>
-
-
-                        <div class="col-lg-12">
-                            <div class="product__pagination blog__pagination">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Blog Section End -->
-
-
 </@commonPage.page>
