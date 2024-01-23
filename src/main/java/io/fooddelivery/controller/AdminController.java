@@ -250,6 +250,7 @@ public class AdminController {
       Model model) {
     Order orderById = orderServiceApi.getOrderById(id);
     orderById.setName(name);
+    orderById.setSoname(soname);
     orderById.setStatus(soname);
     orderById.setStreet(street);
     orderById.setCity(city);

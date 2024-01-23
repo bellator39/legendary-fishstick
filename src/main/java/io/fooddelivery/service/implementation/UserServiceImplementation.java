@@ -38,10 +38,6 @@ public class UserServiceImplementation implements UserServiceApi {
             log.warn("User with username - {} already exists in {}",user.getUsername(),new Date());
             return null;
         }
-        if(UserValidator.UserValidation(user)){
-            log.warn("Error with user fields in {}",new Date());
-            return null;
-        }
         user.setPasswordUser(passwordEncoder.encode(user.getPassword()));
         user.setUserRole(Role.USER);
         user.setDateRegister(new Date());

@@ -77,12 +77,12 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/static/main_style/img/categories/cat-4.jpg">
-                            <h5><a href="/product/category/10">Fresh Meat</a></h5>
+                            <h5><a href="/product/category/10">Fresh Fruit</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="/static/main_style/img/categories/cat-5.jpg">
-                            <h5><a href="/product/category/13">Fresh Fruit</a></h5>
+                            <h5><a href="/product/category/13">Fresh Meat</a></h5>
                         </div>
                     </div>
                 </div>

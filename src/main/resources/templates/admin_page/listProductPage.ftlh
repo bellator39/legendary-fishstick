@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">List of product
-                <#if moderator==true>
+                <#if admin==true>
                   <a href="/admin/addproduct" style="float: right;" type="button"
                      class="btn btn-primary">+</a>
                 </#if>

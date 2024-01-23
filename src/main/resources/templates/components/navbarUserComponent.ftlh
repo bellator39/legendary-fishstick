@@ -51,8 +51,7 @@
     <div class="humberger__menu__contact">
         <ul>
             <li><i class="fa fa-envelope"></i> gurinovich_egor@gmail.com</li>
-            <li>Free Shipping for all Order of $99</li>
-        </ul>
+         </ul>
     </div>
 </div>
 <!-- Humberger End -->
@@ -66,8 +65,7 @@
                     <div class="header__top__left">
                         <ul>
                             <li><i class="fa fa-envelope"></i> <a href="mailto:gurinovich_egor@gmail.com">gurinovich_egor@gmail.com</a></li>
-                            <li>Free Shipping for all Order of $99</li>
-                        </ul>
+                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
